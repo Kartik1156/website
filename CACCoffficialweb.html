@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajatantra Sangathan | The Grand Assembly</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --royal-gold: #ffc300;
+            --deep-navy: #000814;
+            --royal-blue: #001d3d;
+            --accent-blue: #003566;
+        }
+
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--deep-navy); 
+            color: #fdfdfd;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-royal { font-family: 'Cinzel', serif; }
+
+        .bg-gradient-royal {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--royal-blue) 100%);
+        }
+
+        .text-gold { color: var(--royal-gold); }
+        .border-gold { border-color: var(--royal-gold); }
+        
+        .btn-royal {
+            background: linear-gradient(45deg, #d4af37, #ffc300);
+            color: #000814;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-royal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 195, 0, 0.3);
+        }
+
+        .glass-panel {
+            background: rgba(0, 29, 61, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 195, 0, 0.1);
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gold-glow:hover {
+            box-shadow: 0 0 25px rgba(255, 195, 0, 0.15);
+            border-color: rgba(255, 195, 0, 0.5);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--deep-navy); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--royal-gold); }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-[100] h-16 px-6 md:px-12 flex justify-between items-center glass-panel border-b border-white/5">
+        <div class="flex items-center text-gold font-bold text-lg md:text-xl tracking-[0.1em] md:tracking-[0.2em] font-royal">
+               <img src="PRAJATANTRA LOGO.png" alt="Logo" width="120" class="mr-2 md:w-[140px]">
+               <span class="hidden sm:inline">Prajatantra</span>
+        </div>
+        
+        <div class="hidden md:flex space-x-10 text-xs uppercase tracking-[0.2em] items-center">
+            <a href="#about" class="hover:text-gold transition-colors duration-300">The Mission</a>
+            <a href="#committees" class="hover:text-gold transition-colors duration-300">Committees</a>
+            <a href="#venue" class="hover:text-gold transition-colors duration-300">Venue</a>
+            <a href="#register" class="btn-royal px-8 py-3 rounded-full font-bold shadow-lg">Register</a>
+        </div>
+
+        <button class="md:hidden text-gold" id="menuBtn">
+            <i data-lucide="menu"></i>
+        </button>
+    </nav>
+
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="kuchbhi.jpeg" class="w-full h-full object-cover scale-110 opacity-40" alt="Background">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#000814]/80 to-[#000814]"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 reveal">
+            <h1 class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-gold mb-4 md:mb-6 drop-shadow-2xl leading-none md:leading-tight">
+                Prajatantra<br>
+                <span class="text-gold/90">Sangathan</span>
+            </h1>
+            <p class="text-sm md:text-2xl font-light tracking-[0.3em] md:tracking-[0.5em] uppercase mb-8 md:mb-12 text-blue-200/70">
+                Vichaar • Vivad • Samvaad
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
+                <a href="#register" class="btn-royal px-10 md:px-12 py-4 md:py-5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest">Secure Your Seat</a>
+                <a href="#about" class="border border-gold/30 hover:bg-gold/10 px-10 md:px-12 py-4 md:py-5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest transition-all">Learn More</a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gold/50">
+            <i data-lucide="chevron-down"></i>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 md:py-32 px-8 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div class="reveal">
+                <h2 class="text-gold text-sm tracking-[0.4em] uppercase mb-4">The Legacy</h2>
+                <h3 class="text-3xl md:text-5xl mb-8 leading-tight">Championing the Art of Diplomatic Warfare</h3>
+                <p class="text-gray-400 leading-relaxed text-lg mb-8">
+                    Prajatantra Sangathan is more than an organization—it’s a movement. Rooted in the values of equality and brotherhood, we strive to empower the common citizen. Through structured organization and unwavering advocacy, we are reclaiming the true spirit of democracy: Of the people, by the people, and for the people.               
+                </p>
+                <blockquote class="border-l-2 border-gold pl-8 italic text-xl text-blue-100/80">
+                    "Discussion time is over! It's time to debate..."
+                </blockquote>
+            </div>
+            <div class="relative reveal" style="transition-delay: 200ms;">
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                    <img src="rishibhaiyagallery.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Assembly">
+                </div>
+                <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-gold rounded-2xl flex flex-col items-center justify-center p-6 text-navy shadow-2xl hidden md:flex">
+                    <span class="text-4xl font-bold font-royal text-black">2026</span>
+                    <span class="text-xs font-bold uppercase tracking-tighter text-black/70">Grand Assembly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="committees" class="py-20 md:py-32 bg-[#001220]">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16 md:mb-20 reveal">
+                <h2 class="text-gold text-sm tracking-[0.4em] uppercase mb-4">The Arenas</h2>
+                <h3 class="text-4xl md:text-5xl font-royal">Committees & Agendas</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="shield" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">Indian National Security Council</h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">Voices of dissent vs needs of the nation. A high-stakes strategy simulation.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1499</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="cpu" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">Indian Council on Digital Freedom</h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">AI shaping opinions: Manipulation or personalisation?</p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1499</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="briefcase" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">INDIAN WORKFORCE COUNCIL</h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed"> SKILL VS DEGREE: WHAT DEFINES EMPLOYABILITY IN MODERN INDIA?</p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1499</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="video" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">INDIAN COUNCIL ON CINEMA & TALENT</h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">EXAMINING NEPOTISM AND ITS INFLUENCE ON OPPORTUNITY AND TALENT IN BOLLYWOOD.</p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1499</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="venus" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">INDIAN COUNCIL ON GENDER AFFAIRS</h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">WHEN EQUALITY AND CUSTOMS CONFLICT, WHICH SHOULD INDIA CHOOSE?</p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1499</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="vote" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">INDIAN COUNCIL ON ELECTORAL REFORMS </h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">IS POLITICS DELIBERATELY KEPT INACCESSIBLE TO ORDINARY YOUTH?</p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1499</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="user" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">INDIAN COUNCIL ON LABOUR RIGHTS</h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">IS MIGRATION A PERSONAL CHOICE OR FORCED BY DIFFICULT SITUATIONS?</p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1499</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+  
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="mic" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">INDIAN COUNCIL ON YOUTH CRISIS</h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">MENTAL HEALTH CRISIS AMONG YOUTH: IGNORED OR EXAGGERATED?</p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1499</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+  
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="home" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">INDIAN COUNCIL ON RIGHTS, RESPONSIBILITIES & GOVERNANCE</h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">IS EDUCATION A PUBLIC RESPONSIBILITY OR AN INDIVIDUAL INVESTMENT?</p>
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1499</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="settings" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">INDIAN COUNCIL ON DRUGS & ORGANIZED CRIME</h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed"> GOVERNANCE VS REFORM-PUNISHMENT OR REHABILITATION: INDIA'S STRATEGY AGAINST NARCOTICS AND ADDICTION.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1499</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 md:p-10 rounded-3xl gold-glow transition-all duration-500 reveal group" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mb-8 group-hover:bg-gold/20 transition-colors">
+                        <i data-lucide="camera" class="text-gold"></i>
+                    </div>
+                    <h4 class="text-2xl mb-4 font-royal tracking-wide">Indian Press</h4>
+                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">The 4th Pillar. Documenting history with 4K cinematic standards.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold">₹1199</span>
+                        <a href="#register" class="text-xs uppercase tracking-widest hover:text-gold">View Details →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="venue" class="py-20 md:py-32 bg-gradient-royal">
+    <div class="max-w-7xl mx-auto px-8">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-gold text-sm tracking-[0.4em] uppercase mb-4">The Location</h2>
+            <h3 class="text-4xl md:text-5xl font-royal">Venue</h3>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            
+            <!-- Venue Image -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Hansraj_College.jpg" 
+                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
+                     alt="Hansraj College">
+            </div>
+
+            <!-- Venue Details -->
+            <div>
+                <h4 class="text-3xl font-royal mb-6 text-gold">TO BE ANNOUNCED</h4>
+                
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                                    </p>
+
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="map-pin" class="text-gold"></i>
+                        <span>TO BE ANNOUNCED</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="train" class="text-gold"></i>
+                        <span>Nearest Metro Station: TO BE ANNOUNCED</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section id="register" class="py-20 md:py-32 px-4 md:px-8">
+        <div class="max-w-5xl mx-auto glass-panel rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 shadow-2xl relative overflow-hidden reveal">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+            
+            <div class="relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-royal mb-4">Registration</h2>
+                    <p class="text-gray-400">Join the ranks of elite debaters</p>
+                </div>
+
+                <form class="space-y-10" id="registrationForm">
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div class="group relative">
+                            <input type="text" name="fullName" required class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-gold transition-colors peer" placeholder=" ">
+                            <label class="absolute left-0 top-3 text-gray-500 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-gold peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Full Name</label>
+                        </div>
+                        <div class="group relative">
+                            <input type="email" name="email" required class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-gold transition-colors peer" placeholder=" ">
+                            <label class="absolute left-0 top-3 text-gray-500 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-gold peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Email Address</label>
+                        </div>
+                        <div class="group relative">
+                            <input type="tel" name="phone" required class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-gold transition-colors peer" placeholder=" ">
+                            <label class="absolute left-0 top-3 text-gray-500 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-gold peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Contact Number</label>
+                        </div>
+                        <div class="group relative">
+                            <input type="date" name="dob" required class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-gold transition-colors peer text-gray-400" placeholder=" ">
+                            <label class="absolute left-0 -top-4 text-xs text-gold">Date of Birth</label>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div class="group relative">
+                            <input type="text" name="institution" required class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-gold transition-colors peer" placeholder=" ">
+                            <label class="absolute left-0 top-3 text-gray-500 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-gold peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Institution</label>
+                        </div>
+                        <div>
+                            <label class="text-xs uppercase tracking-widest text-gold block mb-2">Select Committee</label>
+                            <select name="committee" class="w-full bg-[#001d3d]/50 border border-white/10 rounded-xl p-3 outline-none focus:border-gold transition-all appearance-none cursor-pointer">
+                                <option>INDIAN NATIONAL SECURITY COUNCIL</option>
+                                <option>INDIAN WORKFORCE COUNCIL</option>
+                                <option>INDIAN COUNCIL ON CINEMA & TALENT</option>
+                                <option>INDIAN COUNCIL ON DIGITAL FREEDOM</option>
+                                <option>INDIAN COUNCIL ON LABOUR RIGHTS</option>
+                                <option>INDIAN COUNCIL ON DRUGS & ORGANIZED CRIME</option>
+                                <option>INDIAN COUNCIL ON RIGHTS,RESPONSIBILITIES & GOVERNANCE</option>
+                                <option>INDIAN COUNCIL ON YOUTH CRISIS</option>
+                                <option>INDIAN COUNCIL ON ELECTORAL REFORMS</option>
+                                <option>INDIAN COUNCIL ON GENDER AFFAIRS</option>
+                                <option>Indian Press</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="group relative">
+                        <textarea name="experience" rows="3" class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-gold transition-colors peer" placeholder=" "></textarea>
+                        <label class="absolute left-0 top-3 text-gray-500 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-gold peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Preference Case</label>
+                    </div>
+
+                    <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                        <div class="flex flex-col md:flex-row items-center gap-10">
+                            <div class="w-32 h-32 bg-white p-2 rounded-lg shadow-inner">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ExampleUPI" alt="QR" class="w-full h-full">
+                            </div>
+                            <div class="flex-1 space-y-4 text-left">
+                                <p class="text-sm leading-relaxed text-gray-300">UPI ID: 8826085676@axl.</p>
+                            </div>
+                        </div>
+                    </div>
+    <!-- Transaction ID -->
+    <div class="group relative">
+        <input type="text" name="transactionID" required
+        class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-gold transition-colors peer"
+        placeholder=" ">
+        <label class="absolute left-0 top-3 text-gray-500 pointer-events-none transition-all 
+        peer-focus:-top-4 peer-focus:text-sm peer-focus:text-gold peer-placeholder-shown:top-3">
+        Transaction ID
+        </label>
+    </div>
+
+    <!-- Payment Method -->
+    <div class="group relative">
+        <select name="paymentMethod" required
+        class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-gold text-gray-300">
+            <option value="">Select Payment Method</option>
+            <option value="UPI">UPI</option>
+            <option value="Paytm">Paytm</option>
+            <option value="Google Pay">Google Pay</option>
+            <option value="PhonePe">PhonePe</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+        </select>
+    </div>
+
+</div>
+
+                    <button type="submit" class="w-full btn-royal py-5 rounded-xl font-bold uppercase tracking-[0.3em] text-sm shadow-2xl">SECURE THE SEAT</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 px-8 bg-black">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-center md:text-left">
+                <div class="text-gold font-bold text-3xl font-royal mb-4 tracking-tighter">Prajatantra</div>
+                <p class="text-gray-500 text-sm max-w-sm">Excellence in diplomacy since inception. Building the leaders of tomorrow, today.</p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end gap-6">
+                <div class="flex space-x-8">
+                    <a href="#" class="text-white/40 hover:text-gold transition-all duration-300 transform hover:scale-125"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="text-white/40 hover:text-gold transition-all duration-300 transform hover:scale-125"><i data-lucide="twitter"></i></a>
+                    <a href="#" class="text-white/40 hover:text-gold transition-all duration-300 transform hover:scale-125"><i data-lucide="linkedin"></i></a>
+                </div>
+                <p class="text-white/20 text-[10px] uppercase tracking-[0.4em]">© 2026 Prajatantra Sangathan. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Reveal Animation on Scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+
+        const menuBtn = document.getElementById('menuBtn');
+        menuBtn.addEventListener('click', () => {
+            alert('Mobile navigation is currently under development.');
+        });
+    </script>
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbyLgrUaZVK3L_iw9AJosSp4ikMEEBz2IWyieSVT_nRMLJla6q5-F98LD2xxB2dCcq6WEg/exec";
+
+const form = document.getElementById("registrationForm");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  fetch(scriptURL, { 
+    method: "POST", 
+    body: formData 
+})
+  .then(response => {
+    alert("✅ Application Submitted Successfully!");
+    form.reset();
+  })
+  .catch(error => {
+    alert("❌ Submission failed. Try again.");
+    console.error(error);
+  });
+});
+</script>
+</body>
+</html>
